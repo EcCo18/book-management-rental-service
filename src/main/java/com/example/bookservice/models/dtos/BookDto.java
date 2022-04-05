@@ -18,6 +18,6 @@ public class BookDto {
     @NotNull
     private String author;
 
-    @Min(0)
+    @Min(1)
     private int releaseYear;
 }

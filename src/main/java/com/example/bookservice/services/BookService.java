@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +22,17 @@ public class BookService {
         log.debug("get all books called");
         bookMetricService.processReceived();
         return bookRepository.findAll();
+    }
+
+    public Optional<Book> findBook(int bookId) {
+        log.debug("find book with id: " + bookId);
+        Optional<Book> book = bookRepository.findById(bookId);
+        if(book.isPresent()) {
+            log.debug("found book: " + book);
+        } else {
+            log.debug("book with id " + bookId + "couldn't be found");
+        }
+        return book;
     }
 
     public Book createBook(Book newBook) {
