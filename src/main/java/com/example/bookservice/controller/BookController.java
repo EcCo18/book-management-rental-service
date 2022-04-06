@@ -30,6 +30,7 @@ public class BookController {
 
     @GetMapping("/{bookId}")
     public ResponseEntity<BookDto> getBookById(@PathVariable("bookId") int bookId) {
+        log.info("received GET for book with id: " + bookId);
         return bookService.findBook(bookId)
                 .map(book -> ResponseEntity.ok(bookMapper.mapBookToDto(book)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
