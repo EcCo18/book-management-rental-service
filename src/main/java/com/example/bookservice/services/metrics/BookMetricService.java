@@ -31,8 +31,8 @@ public class BookMetricService {
                 .register(meterRegistry);
     }
 
-    public void processCreation(Book createdbook) {
-        log.debug("incrementing book created counter, then returning createdBookObject: " + createdbook);
+    public void processCreation(Book createdBook) {
+        log.debug("incrementing book created counter, then returning createdBookObject: " + createdBook);
         bookCreatedCounter.increment();
     }
 
