@@ -21,4 +21,5 @@ public class Book {
     private String isbn;
     private String author;
     private int releaseYear;
+    private String name;
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -21,6 +22,9 @@ public class BookDto {
     @Min(1)
     private int releaseYear;
 
-    @NotNull
+    @NotEmpty
     private String isbn;
+
+    @NotEmpty
+    private String name;
 }
