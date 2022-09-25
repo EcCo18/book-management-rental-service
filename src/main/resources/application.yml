@@ -16,6 +16,8 @@ spring:
     open-in-view: true
   main:
     banner-mode: off
+  kafka:
+    bootstrap-servers: localhost:29092
 management:
   endpoints:
     web:
