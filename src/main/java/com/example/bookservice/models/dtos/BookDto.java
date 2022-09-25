@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @Builder
@@ -16,8 +16,7 @@ import javax.validation.constraints.NotNull;
 public class BookDto {
     private int id;
 
-    @NotNull
-    private String author;
+    private List<String> authors;
 
     @Min(1)
     private int releaseYear;

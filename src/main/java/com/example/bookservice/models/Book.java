@@ -5,9 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Map;
 
 @Entity
 @Data
@@ -19,7 +19,9 @@ public class Book {
     @GeneratedValue
     private int id;
     private String isbn;
-    private String author;
+    @ElementCollection
+    @CollectionTable(name="author_list", joinColumns = @JoinColumn(name = "id"))
+    private List<String> authors;
     private int releaseYear;
     private String name;
 }
