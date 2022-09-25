@@ -18,6 +18,11 @@ spring:
     banner-mode: off
   kafka:
     bootstrap-servers: localhost:29092
+logging:
+  level:
+    org:
+      apache:
+        kafka: warn
 management:
   endpoints:
     web:
