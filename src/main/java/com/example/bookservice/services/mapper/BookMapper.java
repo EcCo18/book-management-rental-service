@@ -14,6 +14,7 @@ public class BookMapper {
                 .id(bookDto.getId())
                 .author(bookDto.getAuthor())
                 .releaseYear(bookDto.getReleaseYear())
+                .isbn(bookDto.getIsbn())
                 .build();
     }
 
@@ -26,6 +27,7 @@ public class BookMapper {
                 .id(book.getId())
                 .author(book.getAuthor())
                 .releaseYear(book.getReleaseYear())
+                .isbn(book.getIsbn())
                 .build();
     }
 

@@ -20,4 +20,7 @@ public class BookDto {
 
     @Min(1)
     private int releaseYear;
+
+    @NotNull
+    private String isbn;
 }
