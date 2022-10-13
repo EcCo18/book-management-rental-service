@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/api/v1/books")
 @RequiredArgsConstructor
 @Slf4j
 public class BookController {
