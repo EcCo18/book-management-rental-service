@@ -12,8 +12,10 @@ public class BookMapper {
     public Book mapDtoToBook(BookDto bookDto) {
         return Book.builder()
                 .id(bookDto.getId())
-                .author(bookDto.getAuthor())
+                .authors(bookDto.getAuthors())
                 .releaseYear(bookDto.getReleaseYear())
+                .isbn(bookDto.getIsbn())
+                .name(bookDto.getName())
                 .build();
     }
 
@@ -24,8 +26,10 @@ public class BookMapper {
     public BookDto mapBookToDto(Book book) {
         return BookDto.builder()
                 .id(book.getId())
-                .author(book.getAuthor())
+                .authors(book.getAuthors())
                 .releaseYear(book.getReleaseYear())
+                .isbn(book.getIsbn())
+                .name(book.getName())
                 .build();
     }
 

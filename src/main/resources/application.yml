@@ -2,9 +2,9 @@ server:
   port: 8082
 spring:
   application:
-    name: spring_bookshop_user_service
+    name: spring_book_management_book_service
   datasource:
-    url: jdbc:h2:mem:dcbapp
+    url: jdbc:h2:mem:bookservice
     driver-class-name: org.h2.Driver
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
@@ -16,6 +16,13 @@ spring:
     open-in-view: true
   main:
     banner-mode: off
+  kafka:
+    bootstrap-servers: localhost:29092
+logging:
+  level:
+    org:
+      apache:
+        kafka: warn
 management:
   endpoints:
     web:

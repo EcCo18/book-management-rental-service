@@ -6,8 +6,6 @@ import com.example.bookservice.services.metrics.BookMetricService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +24,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Optional<Book> findBook(int bookId) {
+    public Optional<Book> findBook(Long bookId) {
         log.debug("find book with id: " + bookId);
         Optional<Book> book = bookRepository.findById(bookId);
         if(book.isPresent()) {
