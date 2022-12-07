@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Data
@@ -17,11 +16,14 @@ import java.util.Map;
 public class Book {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
+
     private String isbn;
+
     @ElementCollection
     @CollectionTable(name="author_list", joinColumns = @JoinColumn(name = "id"))
     private List<String> authors;
+
     private int releaseYear;
     private String name;
 }

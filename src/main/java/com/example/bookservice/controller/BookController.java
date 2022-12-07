@@ -30,11 +30,19 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}")
-    public ResponseEntity<BookDto> getBookById(@PathVariable("bookId") int bookId) {
+    public ResponseEntity<BookDto> getBookById(@PathVariable("bookId") Long bookId) {
         log.info("received GET for book with id: " + bookId);
         return bookService.findBook(bookId)
                 .map(book -> ResponseEntity.ok(bookMapper.mapBookToDto(book)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // ToDo
+    @DeleteMapping("/{bookId}")
+    public ResponseEntity<BookDto> deleteBookById(@PathVariable("bookId") int bookId) {
+        log.info("received DELETE for book with id: " + bookId);
+
+        return null;
     }
 
     @PostMapping()
