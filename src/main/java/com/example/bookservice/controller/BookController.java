@@ -37,12 +37,15 @@ public class BookController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // ToDo
     @DeleteMapping("/{bookId}")
-    public ResponseEntity<BookDto> deleteBookById(@PathVariable("bookId") int bookId) {
+    public ResponseEntity<BookDto> deleteBookById(@PathVariable("bookId") Long bookId) {
         log.info("received DELETE for book with id: " + bookId);
 
-        return null;
+        return ResponseEntity.ok(
+                bookMapper.mapBookToDto(
+                        bookService.deleteBookById(bookId)
+                )
+        );
     }
 
     @PostMapping()

@@ -52,3 +52,28 @@ spec:
     - protocol: TCP
       nodePort: 30083
       port: 8082
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-book-service
+spec:
+  rules:
+    - host: demo.localdev.me
+      http:
+        paths:
+          - path: /api/v1/rentals
+            backend:
+              service:
+                name: book-app-service
+                port:
+                  number: 80
+            pathType: Prefix
+          - path: /api/v1/books
+            backend:
+              service:
+                name: book-app-service
+                port:
+                  number: 80
+            pathType: Prefix
+  ingressClassName: nginx
