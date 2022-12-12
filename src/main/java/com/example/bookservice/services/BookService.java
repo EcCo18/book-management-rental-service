@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -40,5 +41,13 @@ public class BookService {
         bookMetricService.processCreation(createdBook);
         log.debug("book created: " + newBook);
         return createdBook;
+    }
+
+    public Book deleteBookById(Long bookId) throws NoSuchElementException {
+        log.debug("delete book with id: " + bookId);
+        Book book = bookRepository.findById(bookId).orElseThrow();
+        bookRepository.delete(book);
+
+        return book;
     }
 }
