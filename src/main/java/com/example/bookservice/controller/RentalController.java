@@ -38,15 +38,16 @@ public class RentalController {
         );
     }
 
-    // ToDo
     @GetMapping("/{rentalId}")
     public ResponseEntity<RentalDto> getRentalById(@PathVariable long rentalId) {
-
-
-        return null;
+        log.info("received GET request for rental with id: " + rentalId);
+        return ResponseEntity.ok(
+                rentalMapper.mapRentalToDto(
+                        rentalService.findRentalById(rentalId)
+                )
+        );
     }
 
-    // ToDo
     @DeleteMapping("/{rentalId}")
     public ResponseEntity<RentalDto> deleteRentalById(@PathVariable long rentalId) {
         log.info("received DELETE request for rental with id: " + rentalId);
