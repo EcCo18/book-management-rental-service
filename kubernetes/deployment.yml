@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: book-service-app
-          image: ecco18/book-service:v7
+          image: ecco18/borrow-service:v11
           env:
             - name: DATABASE_USERNAME
               value: "database_username"
