@@ -20,7 +20,7 @@ public class Book {
 
     private String isbn;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="author_list", joinColumns = @JoinColumn(name = "id"))
     private List<String> authors;
 
